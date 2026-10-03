@@ -1,0 +1,8 @@
+data/
+*.csv
+!sample_submission_head.csv
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+*.npz
