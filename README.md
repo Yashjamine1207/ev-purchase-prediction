@@ -39,7 +39,7 @@ happen in real survey data:
   does not (0 out of 1,257, zero exceptions). Real human behavior never produces a pattern this
   clean across thousands of people — a hard `if/else` rule inside a data generator does.
 
-![income generator artifacts](images/income_generator_artifacts.png)
+![income generator artifacts](income_generator_artifacts.png)
 
 *Top: how often each income value appears (log scale) — the $30,000 spike is 2-3 orders of
 magnitude taller than its neighbors. Bottom: average buy rate by income — mostly a smooth trend,
@@ -52,7 +52,7 @@ distributions, only individual values. The fix is to compute that fact as its ow
 hand it to the model directly. That one idea — not a fancier model, not more compute — produced
 the single largest accuracy jump in this project.
 
-Full details and the code that found this: [`notebooks/01_eda_and_data_quality.ipynb`](notebooks/01_eda_and_data_quality.ipynb).
+Full details and the code that found this: [`01_eda_and_data_quality.ipynb`](01_eda_and_data_quality.ipynb).
 
 ## 3. Building the feature: leak-free target encoding
 
@@ -76,7 +76,7 @@ to the nearest \$1,000, nearest \$250, and so on) and 3 smoothing strengths each
 columns in total. Using several groupings together captures both hard exact spikes and smoother
 nearby trends.
 
-Code: [`notebooks/02_feature_engineering_and_modeling.ipynb`](notebooks/02_feature_engineering_and_modeling.ipynb).
+Code: [`02_feature_engineering_and_modeling.ipynb`](02_feature_engineering_and_modeling.ipynb).
 
 ## 4. Modeling
 
@@ -149,12 +149,10 @@ ev-purchase-prediction/
 ├── README.md
 ├── requirements.txt
 ├── LICENSE
-├── images/
-│   └── income_generator_artifacts.png
-└── notebooks/
-    ├── 01_eda_and_data_quality.ipynb              — finding the generator's fingerprints
-    ├── 02_feature_engineering_and_modeling.ipynb  — nested target encoding + LightGBM/XGBoost
-    └── 03_ensemble_and_final_submission.ipynb     — blending, free rules, final results
+├── income_generator_artifacts.png
+├── 01_eda_and_data_quality.ipynb              — finding the generator's fingerprints
+├── 02_feature_engineering_and_modeling.ipynb  — nested target encoding + LightGBM/XGBoost
+└── 03_ensemble_and_final_submission.ipynb     — blending, free rules, final results
 ```
 
 Data files (`train.csv`, `test.csv`, `sample_submission.csv`) are not included — they belong to
@@ -169,7 +167,7 @@ pip install -r requirements.txt
 # download train.csv, test.csv, sample_submission.csv from the competition's Data tab
 # and place them in this folder (or update the paths at the top of each notebook)
 
-jupyter notebook notebooks/01_eda_and_data_quality.ipynb
+jupyter notebook 01_eda_and_data_quality.ipynb
 ```
 
 Run the three notebooks in order. Notebooks 2 and 3 run at a reduced "demo" scale (3 folds, fewer
